@@ -1,0 +1,5 @@
+- [ ] Update body overlay to a deeper purple for better contrast
+- [ ] Refine header gradient to smoother blue-purple transitions
+- [ ] Adjust section backgrounds to consistent semi-transparent purple-blue
+- [ ] Match footer gradient to header
+- [ ] Ensure links and accents fit the unified theme
