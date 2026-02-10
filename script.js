@@ -4,11 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // 1. EFEITO DIGITANDO (MENSAGEM DE BOAS-VINDAS)
     // ======================================================
     
-    // Cria a caixinha da mensagem
     const saudacao = document.createElement("div");
     saudacao.id = "mensagem-boas-vindas";
     
-    // Estiliza via JS
     Object.assign(saudacao.style, {
         position: 'fixed',
         top: '20px',
@@ -29,8 +27,16 @@ document.addEventListener("DOMContentLoaded", function () {
         transition: 'opacity 0.8s ease, transform 0.8s ease'
     });
 
-    saudacao.innerHTML = '<span id="textoDigitando"></span><span style="animation: blink 1s infinite">|</span>';
+    saudacao.innerHTML = '<span id="textoDigitando"></span><span class="cursor">|</span>';
     document.body.prepend(saudacao);
+
+    // Adiciona animação do cursor no CSS via JS
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .cursor { animation: blink 1s infinite; margin-left: 2px; }
+    `;
+    document.head.appendChild(style);
 
     const texto = "👋 Olá! Seja bem-vindo ao meu portfólio.";
     const velocidade = 50; 
@@ -43,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
             i++;
             setTimeout(digitar, velocidade);
         } else {
-            // Espera 3 segundos e some
             setTimeout(() => {
                 saudacao.style.opacity = "0";
                 saudacao.style.transform = "translate(-50%, -20px)";
@@ -59,22 +64,21 @@ document.addEventListener("DOMContentLoaded", function () {
     // 2. SCROLL REVEAL (ANIMAÇÃO AO ROLAR A TELA)
     // ======================================================
     
-    // Seleciona os elementos que vão ser animados
-    const elementosAnimados = document.querySelectorAll('.projeto-card, .skill-card, .formacao-item, h2');
-
     const verificarScroll = () => {
+        // Seleciona novamente para garantir que pegou todos após o DOM carregar
+        const elementosAnimados = document.querySelectorAll('.projeto-card, .skill-card, .formacao-item, h2');
         const alturaJanela = window.innerHeight;
-        const pontoDeAtivacao = 100; // Distância do fundo para ativar
+        const pontoDeAtivacao = 100;
 
         elementosAnimados.forEach((el) => {
             const posicaoTopo = el.getBoundingClientRect().top;
-
             if (posicaoTopo < alturaJanela - pontoDeAtivacao) {
-                el.classList.add("ativo"); // Adiciona a classe que faz aparecer
+                el.classList.add("ativo");
             }
         });
     };
 
     window.addEventListener("scroll", verificarScroll);
-    verificarScroll(); // Chama uma vez ao carregar
+    // Pequeno delay para a primeira verificação não conflitar com o carregamento
+    setTimeout(verificarScroll, 100); 
 });
