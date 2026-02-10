@@ -226,3 +226,63 @@ footer {
 strong {
     color: #89CFF0;
 }
+/* =========================================
+   9. AJUSTES PARA CELULAR (RESPONSIVIDADE)
+   ========================================= */
+
+@media (max-width: 768px) {
+    
+    /* Aumenta o texto base para facilitar a leitura */
+    body {
+        font-size: 16px; 
+    }
+
+    /* Diminui o cabeçalho gigante */
+    header {
+        padding: 40px 15px;
+    }
+
+    header h1 {
+        font-size: 1.8em; /* Título menor para não quebrar linha feio */
+    }
+
+    /* Tira as margens laterais gigantes que espremem o texto */
+    section {
+        padding: 0 15px; 
+        margin: 40px auto; /* Menos espaço entre seções */
+    }
+
+    /* Ajusta os títulos das seções */
+    h2 {
+        font-size: 1.1em;
+        margin-bottom: 20px;
+    }
+
+    /* Cards de Projetos e Skills ocupam a largura total */
+    .skills-container, 
+    .projeto-card, 
+    .skill-card {
+        width: 100%;
+        padding: 20px; /* Menos enchimento interno */
+    }
+
+    /* AJUSTE CRÍTICO DA FORMAÇÃO */
+    /* Tira o ano do canto direito e coloca em cima do título */
+    .formacao-item .ano {
+        position: static; /* Para de flutuar */
+        display: inline-block;
+        margin-bottom: 8px;
+        font-size: 0.9em;
+    }
+
+    .formacao-item {
+        padding: 15px; /* Mais compacto */
+    }
+    
+    /* Aumenta os botões para serem fáceis de clicar com o dedo */
+    .botao-ver {
+        width: 100%; /* Botão ocupa a largura toda */
+        padding: 12px 0;
+        font-size: 1.1em;
+    }
+}
