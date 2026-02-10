@@ -286,3 +286,27 @@ strong {
         font-size: 1.1em;
     }
 }
+/* =========================================
+   10. ANIMAÇÃO DE SCROLL (REVEAL)
+   ========================================= */
+
+/* Estado Inicial: Invisível e deslocado para baixo */
+.projeto-card, 
+.skill-card, 
+.formacao-item, 
+section h2 {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out; /* Suavidade da animação */
+}
+
+/* Estado Final: Visível e na posição correta */
+.ativo {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Atraso leve para os cards de skill aparecerem um depois do outro */
+.skill-card:nth-child(2) { transition-delay: 0.1s; }
+.skill-card:nth-child(3) { transition-delay: 0.2s; }
+.skill-card:nth-child(4) { transition-delay: 0.3s; }
