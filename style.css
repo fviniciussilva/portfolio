@@ -246,3 +246,36 @@ section h2 {
 .skill-card:nth-child(2) { transition-delay: 0.1s; }
 .skill-card:nth-child(3) { transition-delay: 0.2s; }
 .skill-card:nth-child(4) { transition-delay: 0.3s; }
+/* --- ESTILO DOS ÍCONES SOCIAIS (RODAPÉ) --- */
+.sociais-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    color: #c9d1d9;
+    background-color: #21262d;
+    border: 1px solid #30363d;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.4em;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+    background-color: #30363d;
+}
+
+/* Cores Oficiais no Hover */
+.social-icon[title="LinkedIn"]:hover { color: #0a66c2; border-color: #0a66c2; }
+.social-icon[title="GitHub"]:hover { color: #ffffff; border-color: #ffffff; }
+.social-icon[title="WhatsApp"]:hover { color: #25d366; border-color: #25d366; }
+.social-icon[title="E-mail"]:hover { color: #ea4335; border-color: #ea4335; }
