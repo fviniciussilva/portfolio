@@ -1,281 +1,72 @@
-/* 1. RESET E CONFIGURAÇÕES GERAIS */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+:root {
+    --primary: #38bdf8;
+    --secondary: #818cf8;
+    --bg-dark: #0d1117;
+    --card-bg: rgba(22, 27, 34, 0.8);
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #0d1117;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
     color: #c9d1d9;
-    line-height: 1.6;
     overflow-x: hidden;
 }
 
-/* 2. HEADER */
-header {
-    text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
-    border-bottom: 1px solid rgba(137, 207, 240, 0.2);
+.glass {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(240, 246, 252, 0.1);
 }
 
-header h1 {
-    font-size: 2.5em;
-    color: #ffffff;
-    margin-bottom: 10px;
+.gradient-text {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-header p {
-    color: #89CFF0;
-    font-size: 1.1em;
-    font-weight: 300;
+.typing-cursor {
+    border-right: 2px solid var(--primary);
+    animation: blink 0.8s steps(1) infinite;
 }
 
-/* 3. SEÇÕES GERAIS */
-section {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px;
-}
+@keyframes blink { 50% { border-color: transparent; } }
 
-h2 {
-    color: #89CFF0;
-    text-transform: uppercase;
-    font-size: 1.2em;
-    letter-spacing: 2px;
-    margin-bottom: 30px;
-    border-left: 4px solid #89CFF0;
-    padding-left: 15px;
-}
-
-/* 4. CARDS DE SKILLS */
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.skill-card {
-    background: #161b22;
-    border: 1px solid #30363d;
-    padding: 25px;
-    border-radius: 12px;
-}
-
-.skill-card h3 {
-    color: #ffffff;
-    margin-bottom: 15px;
-    font-size: 1.1em;
-}
-
-.skill-card ul {
-    list-style: none;
-}
-
-.skill-card li {
-    font-size: 0.9em;
-    color: #8b949e;
-    margin-bottom: 8px;
-    position: relative;
-    padding-left: 15px;
-}
-
-.skill-card li::before {
-    content: "▹";
-    position: absolute;
-    left: 0;
-    color: #89CFF0;
-}
-
-/* 5. CARDS DE PROJETOS */
-.projeto-card {
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 16px;
-    padding: 32px;
-    margin-bottom: 40px;
-    text-align: center;
-    transition: 0.3s ease;
-}
-
-.projeto-card:hover {
-    border-color: #89CFF0;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.projeto-card h3 {
-    color: #ffffff;
-    margin-bottom: 15px;
-}
-
-.botao-ver {
-    display: inline-block;
-    background-color: #89CFF0;
-    color: #0d1117;
-    padding: 10px 25px;
-    border-radius: 6px;
-    font-weight: bold;
-    text-decoration: none;
-    margin: 10px 5px;
-    transition: 0.3s ease;
-    min-width: 160px;
-}
-
-.botao-ver:hover {
-    background-color: #ffffff !important;
-    color: #0d1117 !important;
-    transform: scale(1.05);
-}
-
-/* 6. IMAGENS */
-.imagem-projeto {
-    width: 100%;
-    max-width: 550px;
-    height: auto;
-    border-radius: 10px;
-    margin-top: 25px;
-    border: 1px solid #30363d;
-}
-
-/* 7. FORMAÇÃO (Estilo Timeline) */
-.formacao-container {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.formacao-item {
-    background: #161b22;
-    border-left: 4px solid #30363d;
-    padding: 20px 25px;
-    border-radius: 0 10px 10px 0;
-    position: relative;
-    transition: 0.3s ease;
-}
-
-.formacao-item:hover {
-    border-left-color: #89CFF0;
-    background: #1c2128;
-    transform: translateX(5px);
-}
-
-.formacao-item .ano {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: #30363d;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.85em;
-    color: #89CFF0;
-    font-weight: bold;
-}
-
-.formacao-item h3 {
-    color: #ffffff;
-    margin-bottom: 5px;
-    font-size: 1.2em;
-}
-
-.formacao-item .subtitulo {
-    color: #89CFF0;
-    font-size: 0.95em;
-    margin-bottom: 10px;
-    font-weight: 500;
-}
-
-/* 8. RODAPÉ */
-footer {
-    text-align: center;
-    padding: 60px 20px;
-    border-top: 1px solid #30363d;
-    background: #161b22;
-    color: #8b949e;
-    font-size: 0.9em;
-    margin-top: 40px;
-}
-
-strong {
-    color: #89CFF0;
-}
-
-/* 9. RESPONSIVIDADE (Celulares e Tablets) */
-@media (max-width: 768px) {
-    body { font-size: 16px; }
-    
-    header { padding: 40px 15px; }
-    header h1 { font-size: 1.8em; }
-
-    section { padding: 0 15px; margin: 40px auto; }
-    
-    .botao-ver {
-        width: 100%; 
-        margin: 5px 0 !important;
-    }
-
-    /* Empilha os botões do projeto de jogo no mobile */
-    .projeto-card div[style*="display: flex"] {
-        flex-direction: column;
-    }
-
-    .formacao-item .ano {
-        position: static;
-        display: inline-block;
-        margin-bottom: 10px;
-    }
-}
-
-/* 10. ANIMAÇÃO DE SCROLL (REVEAL) */
-.projeto-card, 
-.skill-card, 
-.formacao-item, 
-section h2 {
+.reveal {
     opacity: 0;
     transform: translateY(30px);
-    transition: all 0.6s ease-out;
+    transition: all 0.8s ease-out;
 }
 
-.ativo {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.skill-card:nth-child(2) { transition-delay: 0.1s; }
-.skill-card:nth-child(3) { transition-delay: 0.2s; }
-.skill-card:nth-child(4) { transition-delay: 0.3s; }
-/* --- ESTILO DOS ÍCONES SOCIAIS (RODAPÉ) --- */
-.sociais-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
+.profile-img-container {
+    border: 3px solid transparent;
+    background: linear-gradient(var(--bg-dark), var(--bg-dark)) padding-box,
+                linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+    border-radius: 2rem;
+    position: relative;
+    background-color: #161b22;
 }
 
-.social-icon {
-    color: #c9d1d9;
-    background-color: #21262d;
-    border: 1px solid #30363d;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    text-decoration: none;
-    font-size: 1.4em;
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
-.social-icon:hover {
-    transform: translateY(-5px);
-    background-color: #30363d;
+.floating-ai {
+    animation: float 3s ease-in-out infinite;
 }
 
-/* Cores Oficiais no Hover */
-.social-icon[title="LinkedIn"]:hover { color: #0a66c2; border-color: #0a66c2; }
-.social-icon[title="GitHub"]:hover { color: #ffffff; border-color: #ffffff; }
-.social-icon[title="WhatsApp"]:hover { color: #25d366; border-color: #25d366; }
-.social-icon[title="E-mail"]:hover { color: #ea4335; border-color: #ea4335; }
+.image-error-placeholder {
+    display: none;
+}
+
+#profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
