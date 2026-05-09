@@ -1,0 +1,72 @@
+:root {
+    --primary: #38bdf8;
+    --secondary: #818cf8;
+    --bg-dark: #0d1117;
+    --card-bg: rgba(22, 27, 34, 0.8);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: #c9d1d9;
+    overflow-x: hidden;
+}
+
+.glass {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(240, 246, 252, 0.1);
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.typing-cursor {
+    border-right: 2px solid var(--primary);
+    animation: blink 0.8s steps(1) infinite;
+}
+
+@keyframes blink { 50% { border-color: transparent; } }
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.profile-img-container {
+    border: 3px solid transparent;
+    background: linear-gradient(var(--bg-dark), var(--bg-dark)) padding-box,
+                linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+    border-radius: 2rem;
+    position: relative;
+    background-color: #161b22;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.floating-ai {
+    animation: float 3s ease-in-out infinite;
+}
+
+.image-error-placeholder {
+    display: none;
+}
+
+#profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
